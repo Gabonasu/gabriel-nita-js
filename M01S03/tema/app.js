@@ -32,6 +32,7 @@ var prop3 = `Ma numesc ${person.firstName} ${person.lastName}, m-am nascut in ${
 var prop4 = `Animalele mele s-au nascut in ${new Date(Date.now()).getFullYear() - person.pets[0].age}, ${new Date(Date.now()).getFullYear() - person.pets[1].age} respectiv ${new Date(Date.now()).getFullYear() - person.pets[2].age}.`; // Ex 19
 var prop5 = `Stiu ca nu era nevoie de console log la 16,17,18 si 19. Am adaugat doar pentru centralizare.` // Ex 20
 
+
 console.warn('Afiseaza propozitia: “Numele meu este: xxx si yyy si am x animale”. Nu uita de proprietatea length a arrayului pets.');
 console.log(`Numele meu este: ${person.firstName} ${person.lastName} si am ${person.pets.length} animale.`);
 
