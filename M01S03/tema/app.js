@@ -94,3 +94,5 @@ console.log(prop4);
 console.warn('Am folosit variabile.')
 document.getElementById('prop05').innerText = prop5;
 console.log(prop5);
+
+// Ex 20 ^
