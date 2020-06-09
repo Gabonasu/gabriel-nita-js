@@ -152,6 +152,110 @@
         }
 
         console.log(message.trim());
+
+        console.warn('Folosind obiectul person si un for, afiseaza in consola skillurile pe care le are persoana.');
+        var message = '';
+
+        for (i = 0; i < person.skills.length; i++) {
+            message += person.skills[i] + ' ';
+        }
+
+        console.log(message.trim());
+
+
+        console.warn('In mod similar, afiseaza skillurile care incep cu c.');
+        var message = '';
+
+        for (i = 0; i < person.skills.length; i++) {
+            if (person.skills[i][0] === 'c') {
+                message = message + `${person.skills[i]} `;
+            }
+        } 
+
+        console.log(message.trim());
+
+        console.warn(' Folosind un for afiseaza propozitia: "Numele de familie ale prietenilor mei sunt xxx, xxx , xxx."');
+        var message = 'Numele de familie ale prietenilor mei sunt ';
+        
+        for (i = 0; i < person.friends.length; i++) {
+            var friendSurname = person.friends[i].surname;
+            message += `${friendSurname}`;
+
+            if (i === person.friends.length - 1) {
+                // message = message + '.';
+                message += '.';
+            } else {
+                message += ', ';
+            }
+        }
+        console.log(message.trim());
+
+        console.warn('Folosind un for, afiseaza numarul total de ani pe care il au persoanele din arrayul friends.');
+
+        var friendList = person.friends.length;
+        var ageTotal = 0;
+        
+        for (i = 0; i < friendList; i++) {
+            var friendAge = person.friends[i].age;
+            ageTotal += friendAge;
+        }
+
+        console.log(ageTotal);
+
+        console.warn('Folosind un for, afiseaza suma anilor persoanelor. ');
+        var friendList = person.friends.length;
+        ageTotal = 0;
+
+        for (i = 0; i < friendList; i++) {
+            var friend = person.friends[i];
+                ageTotal += friend.age;
+            }
+
+        console.log(ageTotal);
+
+        console.warn('Afiseaza diferenta de varsta dintre persoana si prietenii din arrayul friends.');
+        var friendList = person.friends.length;
+
+        for (i = 0; i < friendList; i++) {
+            var friend = person.friends[i];
+            var diff =  person.age - friend.age;
+        }      
+
+        console.log(diff);
+
+        console.warn('Afiseaza fraza: "Intre Dragos si Larry este o diferenta de xx ani. Intre Dragos si Steven... ".');
+        var friendList = person.friends.length;
+        var message = '';
+
+;       for (i = 0; i < friendList; i++) {
+            var friend = person.friends[i];
+            var diff = person.age - friend.age;
+            message += `Intre ${person.name} si ${friend.name} este o diferenta de ${diff} ani. `;
+            
+        }
+        console.log(message.trim());
+
+        console.warn('Afiseaza fraza prietenii mei sunt xxx yyy, xxx yyy, xxx yyy in ordine inversa a arrayului de prieteni. (Numarand de la length la 0).');
+        var friendList = person.friends.length;
+        var message = 'Prietenii mei sunt ';
+
+        for (i = friendList - 1; i >= 0; i--) {
+            var friend = person.friends[i];
+            var friendName = friend.name;
+            var friendSurname = friend.surname;
+
+            message += `${friendName} ${friendSurname}`;
+
+            if (i === person.friends.length) {
+                // message = message + '.';
+                message += ', ';
+            } else {
+                message += '.';
+            }
+        }
+
+        console.log(message);
+        
     </script>
 </body>
 </html>
