@@ -113,7 +113,9 @@ for (i = 0; i < arrayLength; i++) {
   }
 
   if (i === arrayLength - 1) {
-    theNames += ', ';
+    theNames += '.';
+  } else {
+    theNames += ', '
   }
 }
 
