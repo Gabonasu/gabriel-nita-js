@@ -153,6 +153,8 @@
 
         console.log(message.trim());
 
+        // Tema below //
+
         console.warn('Folosind obiectul person si un for, afiseaza in consola skillurile pe care le are persoana.');
         var message = '';
 
@@ -202,7 +204,7 @@
 
         console.log(ageTotal);
 
-        console.warn('Folosind un for, afiseaza suma anilor persoanelor. ');
+        console.warn('Folosind un for, afiseaza suma anilor persoanelor. ????');
         var friendList = person.friends.length;
         ageTotal = 0;
 
@@ -213,7 +215,7 @@
 
         console.log(ageTotal);
 
-        console.warn('Afiseaza diferenta de varsta dintre persoana si prietenii din arrayul friends.');
+        console.warn('Afiseaza diferenta de varsta dintre persoana si prietenii din arrayul friends. ????');
         var friendList = person.friends.length;
 
         for (i = 0; i < friendList; i++) {
@@ -229,11 +231,15 @@
 
 ;       for (i = 0; i < friendList; i++) {
             var friend = person.friends[i];
-            var diff = person.age - friend.age;
-            message += `Intre ${person.name} si ${friend.name} este o diferenta de ${diff} ani. `;
-            
+            var diff = Math.abs(person.age - friend.age);
+        
+            if (diff === 1) {
+                message += `Intre ${person.name} si ${friend.name} este o diferenta de ${diff} an. `;
+            } else {
+                message += `Intre ${person.name} si ${friend.name} este o diferenta de ${diff} ani. `;
+            }
         }
-        console.log(message.trim());
+        console.log(message);
 
         console.warn('Afiseaza fraza prietenii mei sunt xxx yyy, xxx yyy, xxx yyy in ordine inversa a arrayului de prieteni. (Numarand de la length la 0).');
         var friendList = person.friends.length;
@@ -246,11 +252,10 @@
 
             message += `${friendName} ${friendSurname}`;
 
-            if (i === person.friends.length) {
-                // message = message + '.';
-                message += ', ';
-            } else {
+            if (i === 0) {
                 message += '.';
+            } else {
+                message += ', ';
             }
         }
 
