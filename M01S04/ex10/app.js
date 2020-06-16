@@ -138,3 +138,36 @@ person.skills.forEach(function (skill, i, skills) {
 
 console.log(message);
 person.skills.reverse();
+
+console.warn('Folosind obiectul person si forEach, afiseaza in consola skillurile pe care le are persoana.');
+message = '';
+
+person.skills.forEach(function (skill, i, skills) {
+  var punctuation =', ';
+
+  message += skill;
+
+  if (i === skills.length - 1) {
+    punctuation = '.';
+  }
+
+  message += punctuation;
+});
+
+console.log(message);
+
+console.warn('In mod similar, afiseaza skillurile care nu incep cu j.');
+message = '';
+
+person.skills.forEach(function (skill, i, skills) {
+  var punctuation =', ';
+
+  if (skill.charAt(0) !== 'j') {
+    message += skill;
+    message += punctuation;
+  }
+  
+  
+});
+
+console.log(message.substring(0, message.length - 2) + '.');
