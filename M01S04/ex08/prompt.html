@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prompt</title>
+</head>
+<body>
+
+  <button  onclick="limit()"> 
+    Begin! 
+  </button> 
+  
+  <script>
+    function limit() { 
+      var nr = prompt("Please enter a number");
+      var max = prompt("Please enter limit number");
+
+      nr = parseInt (nr);
+      max = parseInt (max);
+
+      if (max === null || max === 'NaN') { 
+          alert("Not a number!");
+      } 
+
+      if (nr === null || nr === 'NaN') { 
+          alert("Not a number!");
+      } else {
+        let i = 5;
+        while (i <= max) {
+          if (i % nr === 0) {
+            console.log(i);
+          }
+          i++;
+        }
+      }
+    } 
+  </script>
+</body>
+</html>

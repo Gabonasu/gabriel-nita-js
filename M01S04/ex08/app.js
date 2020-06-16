@@ -34,6 +34,7 @@ while (i <= 32) {
   if (i % 2 === 0) {
     continue;
   }
-  
+
   i++;
 }
+
