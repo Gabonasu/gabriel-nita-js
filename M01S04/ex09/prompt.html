@@ -1,36 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   <title>Alt prompt</title>
 </head>
 <body>
   
-  <button  onclick="limit()"> 
+  <button  onclick='limit()'> 
     Begin! 
   </button> 
   
   <script>
     function limit() { 
-      var nr = prompt("Please enter a number");
-      var min = prompt("Please enter a min");
-      var max = prompt("Please enter a max");
+      var nr = prompt('Please enter a number');
+      var min = prompt('Please enter a min');
+      var max = prompt('Please enter a max');
 
       nr = parseInt (nr);
       min = parseInt (min);
       max = parseInt (max);
 
       if (nr === null || nr === 'NaN') { 
-          alert("Not a number!");
+          alert('Not a number!');
       } 
 
       if (min === null || min === 'NaN') { 
-          alert("Not a number!");
+          alert('Not a number!');
       } 
 
       if (max === null || max === 'NaN') { 
-          alert("Not a number!");
+          alert('Not a number!');
       }
 
       let i = min;
