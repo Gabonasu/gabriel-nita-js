@@ -139,6 +139,8 @@ person.skills.forEach(function (skill, i, skills) {
 console.log(message);
 person.skills.reverse();
 
+// //////////////////////////////////////TEMA/////////////////////////////////////////////// //
+
 console.warn('Folosind obiectul person si forEach, afiseaza in consola skillurile pe care le are persoana.');
 message = '';
 
@@ -156,6 +158,8 @@ person.skills.forEach(function (skill, i, skills) {
 
 console.log(message);
 
+// ///////////////////////////////////////////////////////////////////////////////////////////// //
+
 console.warn('In mod similar, afiseaza skillurile care nu incep cu j.');
 message = '';
 
@@ -171,3 +175,79 @@ person.skills.forEach(function (skill, i, skills) {
 });
 
 console.log(message.substring(0, message.length - 2) + '.');
+
+// ///////////////////////////////////////////////////////////////////////////////////////////// //
+
+console.warn('Folosind forEach afiseaza propozitia: "Numele mari ale prietenilor mei sunt xxx, xxx, xxx."');
+message = 'Numele mari ale prietenilor mei sunt ';
+let i = 0;
+
+person.friends.forEach(function (friend, i) {
+  let punctuation =', ';
+
+  message += friend.surname;
+
+  if (i === person.friends.length - 1) {
+    punctuation = '.';
+  }
+
+  message += punctuation;
+});
+
+console.log(message);
+
+// ///////////////////////////////////////////////////////////////////////////////////////////// //
+
+console.warn('Folosind forEach, afiseaza numarul total de ani pe care il au persoanele din arrayul friends');
+message = 'Numarul total de ani este ';
+let sum = 0;
+
+person.friends.forEach(function (friend, i) {
+  sum += friend.age;
+});
+
+message += sum;
+
+console.log(`${message}.`);
+
+// ///////////////////////////////////////////////////////////////////////////////////////////// //
+
+console.warn('Afiseaza diferenta de varsta dintre persoana si prietenii din arrayul friends.');
+message = `Diferenta dintre persoana si prieteni este de `;
+let dif = 0;
+
+person.friends.forEach( function (friend, i) {
+  let punctuation = ', '
+  dif = Math.abs(person.age - friend.age);
+
+  if (i === person.friends.length - 1) {
+    punctuation = '.';
+  }
+  
+  message += dif;
+  message += punctuation;
+
+});
+
+console.log(message);
+
+// ///////////////////////////////////////////////////////////////////////////////////////////// //
+
+console.warn('Folosind metoda reverse si apoi forEach, afiseaza in ordine inversa numele complet al prietenilor din arrayul friends.');
+message = '';
+person.friends.reverse();
+
+person.friends.forEach(function (friend, i) {
+  let punctuation =', ';
+
+  message += friend.surname;
+
+  if (i === person.friends.length - 1) {
+    punctuation = '.';
+  }
+
+  message += punctuation;
+});
+
+console.log(message);
+person.friends.reverse();
