@@ -21,3 +21,24 @@ let thirdFieldYield = thirdSurface * barleyYield;
 let finalBeer = thirdFieldYield / barleyQty * beerYield;
 
 console.log(`Cantitatea de bere este: ${finalBeer}`);
+
+console.warn('Stiind ca un camp dreptunghiular de grau produce 32kg/m2 de faina. Afla si afiseaza cate kilograme de paine produce un camp de 300 pe 200 metri stiind ca dintr-un kilogram de faina ies 2.5 kg de paine.');
+
+let theSurface = calculateRectangleArea(300, 200);
+const flowerField = 32;
+const breadFlower = 2.5;
+
+let theFieldYield = theSurface * flowerField;
+let theBread = theFieldYield / breadFlower;
+
+console.log(`Numarul de paini produse este: ${theBread}.`);
+
+console.warn('Dar doua campuri de 150 pe 200 si 500 pe 300 in total?');
+
+let thisField = calculateRectangleArea(150, 200);
+let thatField = calculateRectangleArea(500, 300);
+
+let finalFieldYield = (thisField + thatField) * flowerField;
+let finalBread = finalFieldYield / breadFlower;
+
+console.log(`Numarul de paini pentru cele doua campuri este: ${finalBread}.`);
