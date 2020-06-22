@@ -29,3 +29,15 @@ console.log(currentYear - accessor('Age'));
 console.warn('Afiseaza propozitia “Ma numesc xxx si am yy ani si m-am nascut acum aa ani.”');
 let personAge = accessor('Age');
 console.log(`Ma numesc ${accessor('Name')} si am ${personAge} ani si m-am nascut acum ${personAge} ani.`);
+
+console.warn('Folosind accesorul afiseaza numele persoanei.');
+console.log(accessor('Name'));
+
+console.warn('Afiseaza varsta persoanei.');
+console.log(accessor('Age'));
+
+console.warn('Afiseaza anul de nastere al persoanei folosind anul curent.');
+console.log(`Anul de nastere: ${new Date().getFullYear() - accessor('Age')}.`);
+
+console.warn('Afiseaza propozitia “Ma numesc xxx yyy si am aa ani!”');
+console.log(`Ma numesc ${accessor('Name')} si am ${personAge} ani!`);

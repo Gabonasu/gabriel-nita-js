@@ -37,10 +37,11 @@ console.warn('Folosind keywordul continue afiseaza doar numerele impare intre 8 
 i = 8;
 
 do {
-  console.log(i);
-  
   if (i % 2 === 0) {
-    // continue;
+    i++;
+    continue;
   }
+
+  console.log(i);
   i++;
 } while (i <= 32)
