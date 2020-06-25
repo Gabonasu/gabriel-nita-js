@@ -27,3 +27,17 @@ setTimeout(() => {
 
   document.body.appendChild(h1);
 }, 3000);
+
+// Edge //
+
+if (userAgentString.includes(userAgentString.match(/edge/ig))) {
+  message = "Navighezi folosind Edge.";
+  browserName = 'Edge';
+}
+
+// remove paragraph //
+
+setTimeout(() => {
+ let removed = paragraphElement.remove('p');
+}, 6000);
+
