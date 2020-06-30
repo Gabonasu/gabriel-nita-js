@@ -1,10 +1,15 @@
-let words = ['spinach'];
+let words = ['spinach', 'umbrella', 'flamingo'];
 let tries = 5;
-let word = words[0];
+let word = words[randomNumber(0, words.length)];
 let guesedLetters = [];
 let gameEnded = false;
 let wordGuesed = false;
 let keyboard = document.querySelector('.keyboard');
+
+function randomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+};
+
 
 let renderTries = () => {
   let triesElement = document.getElementById('js-tries');
@@ -54,6 +59,14 @@ let checkGameState = () => {
     alert('Ai pierdut');
     return;
   }
+};
+
+let resetGame = () => {
+  tries = 5;
+  renderTries();
+  gameEnded = false;
+  wordGuesed = false;
+  renderWord();
 };
 
 let renderFace = () => {
