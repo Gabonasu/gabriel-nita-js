@@ -1,14 +1,14 @@
 class Car {
   constructor(
-    left,
-    top,
+    left = 100,
+    top = 100,
     color,
     topColor
   ) {
     this.left = left;
     this.top = top;
     this.color = color;
-    this.topColor = topColor;
+    this.topColor = topColor ? topColor : color;
   }
 
   areLightsOn = false;
@@ -57,14 +57,14 @@ class Car {
     this.car.style.backgroundColor = this.color;
   }
 
-  setTopColor (topColor) {
-    if (!topColor) {
+  setTopColor (color) {
+    if (!color) {
       return;
     }
 
-    this.topColor = topColor;
+    this.topColor = color;
 
-    this.car.style.backgroundColor = this.topColor;
+    this.carTop.style.backgroundColor = this.topColor;
   }
 
   render () {
@@ -76,12 +76,12 @@ class Car {
     this.car.style.backgroundColor = this.color;
     this.frame.appendChild(this.car);
 
-    //create car top
+    // create car top
     this.carTop.classList.add('car__top');
     this.carTop.style.backgroundColor = this.topColor;
     this.car.appendChild(this.carTop);
-   
-    //create car body
+
+    // create car body
     this.carBody.classList.add('car__body');
     this.car.appendChild(this.carBody);
 
@@ -96,9 +96,8 @@ class Car {
     this.wheelFront.classList.add('wheel', 'car__wheel', 'car__wheel--front');
     this.carBody.appendChild(this.wheelBack);
     this.carBody.appendChild(this.wheelFront);
-    
-    // create wheel cap
 
+    // create hubcaps
     this.wheelCapBack.classList.add('wheel__cap');
     this.wheelCapFront.classList.add('wheel__cap');
     this.wheelBack.appendChild(this.wheelCapBack);
