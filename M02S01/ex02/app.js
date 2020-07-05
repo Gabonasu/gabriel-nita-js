@@ -15,6 +15,9 @@ class Vehicle {
     this.topReverseSpeed = topReverseSpeed;
   }
 
+  // Pentru M02S01, Ex 02, va rog ajustati metoda displaySpeed astfel incat sa afiseze o propozitie de genul: 
+  // Masina de marca xxx de culoare yyy se deplasa cu viteza sss.
+
   displaySpeed () {
     console.log(`Masina de marca ${this.make} de culoare ${this.color} se deplaseaza cu viteza ${this.speed} km/h.`);
   }
