@@ -3,15 +3,21 @@ class Car {
     left = 100,
     top = 100,
     color,
-    topColor
+    topColor,
+    wheelColor,
+    capColor
   ) {
     this.left = left;
     this.top = top;
     this.color = color;
     this.topColor = topColor ? topColor : color;
+    this.wheelColor = wheelColor ? wheelColor : color;
+    this.capColor = capColor ? capColor : color;
   }
 
   areLightsOn = false;
+  areBreaksOn = false;
+  areHazardsOn = false;
 
   frame = document.createElement('div');
   car = document.createElement('div');
@@ -35,6 +41,41 @@ class Car {
 
     this.lightFront.classList.remove('light--on');
   }
+
+  // Creeaza metode numite engageBreak() si disenagageBreak() care vor aprinde respectiv stinge farul din spate. 
+  engageBreak () {
+    this.areBreaksOn = true;
+
+    this.lightBack.classList.add('light--on');
+  }
+
+  disengageBreak () {
+    this.areBreaksOn = false;
+
+    this.lightBack.classList.remove('light--on');
+  }
+
+  // Creeaza o metoda numita toggleHazards() care sa functioneze ca avarie si sa aprinda si sa stinga farurile repetat. 
+  // Foloseste o proprietate numita areHazardsOn pentru a putea tine cont de statusul sistemului.
+
+  toggleHazards () {
+    this.areHazardsOn = !this.areHazardsOn;
+
+    if (this.areHazardsOn === true ) {
+      this.lightBack.classList.add('light--hz');
+      this.lightFront.classList.add('light--hz');
+    } else {
+      this.lightBack.classList.remove('light--hz');
+      this.lightFront.classList.remove('light--hz');
+    }
+    return this.areHazardsOn;
+  }
+  
+  x = setInterval (() => {
+    this.toggleHazards();
+  }, 1000);
+  
+
 
   moveFrame (left, top) {
     if (!left || !top) {
@@ -67,6 +108,31 @@ class Car {
     this.carTop.style.backgroundColor = this.topColor;
   }
 
+  // Folosind fisierele rezultate din exercitiul 04.
+  // Creeaza configurare pentru culoarea rotilor si a capacelor de roti si metode pentru schimbarea lor dinamica.
+
+  setWheelColor (color) {
+    if (!color) {
+      return;
+    }
+
+    this.wheelColor = color;
+
+    this.wheelBack.style.backgroundColor = this.wheelColor;
+    this.wheelFront.style.backgroundColor = this.wheelColor;
+  }
+
+  setCapColor (color) {
+    if (!color) {
+      return;
+    }
+
+    this.capColor = color;
+
+    this.wheelCapBack.style.backgroundColor = this.capColor;
+    this.wheelCapFront.style.backgroundColor = this.capColor;
+  }
+
   render () {
     this.frame.classList.add('frame');
     this.frame.style.cssText = `left: ${this.left}px; top: ${this.top}px;`;
@@ -94,12 +160,16 @@ class Car {
     // create wheels
     this.wheelBack.classList.add('wheel', 'car__wheel', 'car__wheel--back');
     this.wheelFront.classList.add('wheel', 'car__wheel', 'car__wheel--front');
+    this.wheelBack.style.backgroundColor = this.wheelColor;
+    this.wheelFront.style.backgroundColor = this.wheelColor;
     this.carBody.appendChild(this.wheelBack);
     this.carBody.appendChild(this.wheelFront);
 
     // create hubcaps
     this.wheelCapBack.classList.add('wheel__cap');
     this.wheelCapFront.classList.add('wheel__cap');
+    this.wheelCapBack.style.backgroundColor = this.capColor;
+    this.wheelCapFront.style.backgroundColor = this.capColor;
     this.wheelBack.appendChild(this.wheelCapBack);
     this.wheelFront.appendChild(this.wheelCapFront);
 
@@ -107,5 +177,7 @@ class Car {
   }
 }
 
-let car = new Car(10, 20, 'lightblue', 'lightgreen');
+let car = new Car(10, 20, 'lightblue', 'lightgreen', 'lightpink', 'lightseagreen');
 car.render();
+
+

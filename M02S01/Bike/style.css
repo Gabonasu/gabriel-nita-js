@@ -1,0 +1,17 @@
+.bike {
+  position: relative;
+  background-color: black;
+}
+
+.bike__body {
+  width: 180px;
+  height: 10px;
+  background-color: inherit;
+  position: absolute;
+  left: 15px;
+}
+
+.bike__wheel {
+  position: absolute;
+  bottom:-20px;
+}

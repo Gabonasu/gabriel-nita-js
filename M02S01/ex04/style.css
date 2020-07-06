@@ -75,6 +75,14 @@
   background-color: #F00;
 }
 
+.light--front.light--hz {
+  background-color: orange;
+}
+
+.light--back.light--hz {
+  background-color: orange;
+}
+
 .frame {
   width: 200px;
   height: 200px;

@@ -5,6 +5,8 @@ let Car = {
   speed: 0,
   topSpeed: 140,
   topReverseSpeed: -70,
+  // Adauga o proprietate booleana numita areLightsOn si asigneaza-i valoarea false.
+  areLightsOn: false,
   displaySpeed: function () {
     console.log(`Viteza curenta este: ${this.speed}`);
   },
@@ -29,8 +31,26 @@ let Car = {
 
     this.speed = speed;
     this.displaySpeed();
+  },
+  // Adauga metode numite turnLightsOn() si turnLightsOff() care sa manipuleze valoarea. 
+  turnLightsOn: function () {
+   this.areLightsOn = true;
+  },
+
+  turnLightsOff: function () {
+    this.areLightsOn = false;
+  },
+
+  // Adauga o metoda numita flashLights() care sa apeleze cele doua metode in succesiune, folosind metoda window.setTimeout().
+  flashLights: function () {
+    this.turnLightsOn();
+
+    window.setTimeout(() => {
+      this.turnLightsOff();
+    }, 3000);
   }
 };
+
 
 let audi = Object.create(Car);
 audi.make = 'Audi';
