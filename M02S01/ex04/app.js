@@ -5,7 +5,8 @@ class Car {
     color,
     topColor,
     wheelColor,
-    capColor
+    capColor,
+    interval
   ) {
     this.left = left;
     this.top = top;
@@ -13,6 +14,7 @@ class Car {
     this.topColor = topColor ? topColor : color;
     this.wheelColor = wheelColor ? wheelColor : color;
     this.capColor = capColor ? capColor : color;
+    this.interval = interval;
   }
 
   areLightsOn = false;
@@ -68,14 +70,17 @@ class Car {
       this.lightBack.classList.remove('light--hz');
       this.lightFront.classList.remove('light--hz');
     }
+
+    if (this.interval === null) {
+      this.interval = setInterval (() => {
+        this.toggleHazards();
+      }, 1000);
+    } else {
+      clearInterval (this.interval);
+    }
+
     return this.areHazardsOn;
   }
-  
-  x = setInterval (() => {
-    this.toggleHazards();
-  }, 1000);
-  
-
 
   moveFrame (left, top) {
     if (!left || !top) {
