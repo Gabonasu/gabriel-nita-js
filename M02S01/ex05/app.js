@@ -15,6 +15,12 @@ class Shape {
     this.borderColor = borderColor;
   }
 
+  // shape shape--rectangle shape--circle
+
+  shape = document.createElement('div');
+  shapeRectangle = document.createElement('div');
+  shapeCircle = document.createElement('div');
+  
   
   setPosX(x) {
     this.posX = x;
