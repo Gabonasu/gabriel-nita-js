@@ -31,7 +31,7 @@ class Car {
   wheelFront = document.createElement('div');
   wheelCapBack = document.createElement('div');
   wheelCapFront = document.createElement('div');
-
+  
   turnLightsOn () {
     this.areLightsOn = true;
 
@@ -42,6 +42,14 @@ class Car {
     this.areLightsOn = false;
 
     this.lightFront.classList.remove('light--on');
+  }
+
+  toggleLights () {
+    this.turnLightsOn();
+
+    setTimeout(() => {
+      this.turnLightsOff();
+    },2000);
   }
 
   // Creeaza metode numite engageBreak() si disenagageBreak() care vor aprinde respectiv stinge farul din spate. 
@@ -57,30 +65,44 @@ class Car {
     this.lightBack.classList.remove('light--on');
   }
 
+  toggleBreaks () {
+    this.engageBreak();
+
+    setTimeout(() => {
+      this.disengageBreak();
+    },2000);
+  }
+
   // Creeaza o metoda numita toggleHazards() care sa functioneze ca avarie si sa aprinda si sa stinga farurile repetat. 
   // Foloseste o proprietate numita areHazardsOn pentru a putea tine cont de statusul sistemului.
 
-  toggleHazards () {
-    this.areHazardsOn = !this.areHazardsOn;
-
-    if (this.areHazardsOn === true ) {
-      this.lightBack.classList.add('light--hz');
-      this.lightFront.classList.add('light--hz');
-    } else {
-      this.lightBack.classList.remove('light--hz');
-      this.lightFront.classList.remove('light--hz');
-    }
-
-    if (this.interval === null) {
-      this.interval = setInterval (() => {
-        this.toggleHazards();
-      }, 1000);
-    } else {
-      clearInterval (this.interval);
-    }
-
-    return this.areHazardsOn;
+  hazardsOn () {
+    this.areHazardsOn = true;
+    
+    this.lightBack.classList.add('light--hz');
+    this.lightFront.classList.add('light--hz');
   }
+
+  hazardsOff () {
+    this.areHazardsOn = false;
+
+    this.lightFront.classList.remove('light--hz');
+    this.lightBack.classList.remove('light--hz');
+  }
+
+  toggleHazards () {
+    this.hazardsOn();
+
+    setTimeout(() => {
+      this.hazardsOff();
+    },1000);
+
+    setInterval(() => {
+      this.toggleHazards();
+    }, 2000);
+  }
+
+
 
   moveFrame (left, top) {
     if (!left || !top) {
