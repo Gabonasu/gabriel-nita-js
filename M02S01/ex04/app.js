@@ -102,8 +102,6 @@ class Car {
     }, 2000);
   }
 
-
-
   moveFrame (left, top) {
     if (!left || !top) {
       return;

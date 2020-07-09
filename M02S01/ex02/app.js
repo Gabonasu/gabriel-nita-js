@@ -122,3 +122,5 @@ let audi = new Car (
 );
 
 audi.setSpeed(140);
+
+let bmw = new Car();
