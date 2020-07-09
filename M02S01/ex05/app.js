@@ -45,6 +45,16 @@ class Shape {
   setBorderColor(bc) {
     this.borderColor = bc;
   }
+
+  render () {
+    this.shape.classList.add('shape');
+
+    this.shapeRectangle.classList.add('shape', 'shape--rectangle');
+    this.shapeRectangle.style.backgroundColor = this.color;
+    this.shape.appendChild(this.shapeRectangle);
+
+    document.body.appendChild(this.shape);
+  }
 }
 
 class Rectangle extends Shape {
@@ -93,9 +103,6 @@ class Circle extends Shape {
   }
 }
 
-render () {
-  this.shape.classList.add('shape');
-  document.body.appendChild(this.shape);
-}
+
 
 let rectangle = new Rectangle(105, 150, 50, 50, 'lightblue', 'blue');
