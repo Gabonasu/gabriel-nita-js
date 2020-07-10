@@ -19,8 +19,6 @@ class Shape {
   shapeRectangle = document.createElement('div');
   shapeCircle = document.createElement('div');
   shapeSquare = document.createElement('div');
-
-
   
   setPosX(x) {
     this.posX = x;
@@ -52,6 +50,14 @@ class Shape {
     this.shapeRectangle.classList.add('shape', 'shape--rectangle');
     this.shapeRectangle.style.backgroundColor = this.color;
     this.shape.appendChild(this.shapeRectangle);
+
+    this.shapeCircle.classList.add('shape', 'shape--circle');
+    this.shapeCircle.style.backgroundColor = this.color;
+    this.shape.appendChild(this.shapeCircle);
+
+    this.shapeSquare.classList.add('shape', 'shape--square');
+    this.shapeSquare.style.backgroundColor = this.color;
+    this.shape.appendChild(this.shapeSquare);
 
     document.body.appendChild(this.shape);
   }
@@ -103,6 +109,28 @@ class Circle extends Shape {
   }
 }
 
+class Square extends Shape {
+  constructor(
+    posX,
+    posY, 
+    width, 
+    height, 
+    color, 
+    borderColor
+  ) {
+    super(
+    posX,
+    posY, 
+    width, 
+    height, 
+    color, 
+    borderColor
+    );
+  }
+}
 
+let rectangle = new Rectangle(150, 150, 150, 50, 'lightblue', 'blue');
+rectangle.render();
 
-let rectangle = new Rectangle(105, 150, 50, 50, 'lightblue', 'blue');
+let square = new Square(150, 150, 150, 150, 'red', 'blue');
+square.render();
