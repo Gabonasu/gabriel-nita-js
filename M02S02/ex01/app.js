@@ -91,7 +91,7 @@ $('<sup>1</sup>').prependTo('.nav-link');
 
 $('.container').before('<h1>Invat jQuery</h1>');
 
-//-----------------------primul fail-----------------------------------------
+//----------------------- primul fail -----------------------------------------
 
 // let para = jQuery('<p>', {
 //   class: 'paragraph',
@@ -107,7 +107,7 @@ $('.container').before('<h1>Invat jQuery</h1>');
 // $('.navigation').after(`${para}`);
 
 
-// -------------------------al doilea fail ------------------------------------------
+// ------------------------- al doilea fail ------------------------------------------
 
 // $('.navigation').after($('<a>', {
 //   text: 'aici',
@@ -115,3 +115,26 @@ $('.container').before('<h1>Invat jQuery</h1>');
 //   href: 'https://jquery.com/',
 // })).after('Documentatia jQuery poate fi gasita ');
 
+// --------------------------- al treilea fail --------------------------------------
+
+// let link = jQuery('<a>', {
+//   target: '_blank',
+//   href: 'https://jquery.com/'  
+// }).appendTo('.link');
+
+// $('h1').after('<p>Documentatia poate fi gasita <span class="link">aici</span>.</p>');
+
+// ---------------------------- al patrulea fail -------------------------------------
+
+// let para = jQuery('<p>', {
+//   class: 'paragraph',
+//   text: 'Documentatia jQuery poate fi gasita ',
+// });
+
+// let link = jQuery('<a>', {
+//   text: 'aici',
+//   target: '_blank',
+//   href: 'https://jquery.com/',
+// });
+
+// $('h1').after(`${para + link}`);
