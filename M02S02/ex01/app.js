@@ -55,6 +55,7 @@ let wrappingDiv = jQuery('<div>', {
   class: 'container',
 });
 
+
 // $('.nimic').add($p).add($p2).wrap(wrappingDiv);
 $body.append(wrappingDiv);
 $p.appendTo(wrappingDiv);
@@ -63,3 +64,54 @@ $p2.appendTo(wrappingDiv);
 let msg = 'Mesaje';
 
 $(`<h2>${msg}</h2>`).prependTo(wrappingDiv);
+
+// 9. Creaza un div cu clasa navigation si adauga-l dupa divul anterior, folosind metoda .after() 
+//     https://api.jquery.com/after/ 
+// 10. Creeaza un element de tip ancora cu textul Primul Link si clasa nav-link si adauga-l la divul cu clasa navigation.
+// 11. Creeaza un element h2 cu textul “Navigatie” si folosind metoda .before() adauga-l la divul cu clasa navigation. Selectorul lui before va trebui sa fie selectorul ancorei pentru a functiona corect. Exemplu: .navigation .nav-link
+//     https://api.jquery.com/before/ 
+// 12. Creeaza un element de tip sup cu textul 1 si folosind metoda .prepend() adauga-l in ancora .nav-link
+//     https://api.jquery.com/prepend 
+
+
+let nav = jQuery('<div>', {
+  class: 'navigation',
+});
+$('.container').after(nav);
+
+$('<a class="nav-link">Primul Link</a>').appendTo(nav);
+
+$('.navigation .nav-link').before('<h2>Navigatie</h2>');
+
+$('<sup>1</sup>').prependTo('.nav-link');
+
+// 13. Creeaza un element de tip h1 cu textul: “Invat jQuery” si folosind metoda .before() adauga-l deasupra divului .container 
+// 14. Adauga prin orice metoda un paragraf cu textul “Documentatia jQuery poate fi gasita aici.” 
+// Cuvantul aici va fi o ancora care va deschide intr-o pagina noua documentia jQuery. Atributele target si href pot fi setate in acelasi fel cum sunt setate cele text sau class
+
+$('.container').before('<h1>Invat jQuery</h1>');
+
+//-----------------------primul fail-----------------------------------------
+
+// let para = jQuery('<p>', {
+//   class: 'paragraph',
+//   text: 'Documentatia jQuery poate fi gasita ',
+// });
+
+// let link = jQuery('<a>', {
+//   text: 'aici',
+//   target: '_blank',
+//   href: 'https://jquery.com/',
+// }).appendTo(para);
+
+// $('.navigation').after(`${para}`);
+
+
+// -------------------------al doilea fail ------------------------------------------
+
+// $('.navigation').after($('<a>', {
+//   text: 'aici',
+//   target: '_blank',
+//   href: 'https://jquery.com/',
+// })).after('Documentatia jQuery poate fi gasita ');
+
