@@ -125,6 +125,50 @@ $(document).ready(() => {
     });
     // re-use this code
 
-    console.log(formFields);
+    if (formFields[0].value === '' || 
+      formFields[1].value === '' ||
+      formFields[2].value === '') {
+        return;
+    }
+
+    let petClass = 'pets-ul';
+    let $petsUl = $(`.${petClass}`);
+
+    if ($petsUl.length < 1) {
+      $petsUl = $('<ul>', {
+        class: petClass,
+      })
+        .appendTo('.person-pets')
+        .on('click', '.pet-delete, .pet-edit-cancel', (event) => {
+          $(event.currentTarget).parent().remove();
+        })
+        .on('click', '.pet-edit', (event) => {
+          $(event.currentTarget).parent().prepend(textCaptureForm());
+        })
+        .on('click', '.pet-edit-save', (event) => {
+          let $petEditSave = $(event.currentTarget);
+          let newPetName = $petEditSave.prev().val();
+
+          if (newPetName.length < 1) {
+            return;
+          }
+
+          $petEditSave.parents('li').find('span').text(newPetName);
+
+          $petEditSave.parent().remove();
+        });
+    }
+
+    $petsUl.append(
+      `
+        <li>
+          <span>${petName}</span>
+          <button class="pet-delete">Sterge</button>
+          <button class="pet-edit">Editeaza</button>
+        </li>
+      `,
+    );
+    
+    $petInput.val('');
   });
 });
