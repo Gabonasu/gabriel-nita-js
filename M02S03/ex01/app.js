@@ -11,6 +11,8 @@ class Car {
     this.speed = speed;
   }
 
+  displaySpeed() {}
+
   accelerate() {
     this.speed++;
 

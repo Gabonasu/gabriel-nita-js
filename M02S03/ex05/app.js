@@ -8,7 +8,7 @@ let oldWidth = window.innerWidth;
 
 window.addEventListener('resize', (event) => {
   let newWidth = window.innerWidth;
-  p.innerText = window.newWidth;
+  p.innerText = newWidth;
 
   if (newWidth !== oldWidth) {
     p2.innerText = 'Fereastra si-a schimbat latimea.';
@@ -16,4 +16,5 @@ window.addEventListener('resize', (event) => {
     p2.innerText = '';
   }
   
+  oldWidth = newWidth;
 });
