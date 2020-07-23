@@ -21,7 +21,7 @@ toggleButton.addEventListener('click', (event) => {
 
   btn.innerText = isClassApplied === true ? 'Elimina' : 'Aplica';
 
-  // if(box.classList.contains(animationClass)) {
+  // if (box.classList.contains(animationClass)) {
   //   btn.innerText = 'Aplica';
   // } else {
   //   btn.innerText = 'Elimina';

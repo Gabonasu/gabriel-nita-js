@@ -1,6 +1,7 @@
 let mainButtons = document.querySelectorAll('.btn');
 let box = document.querySelector('.box');
 let colorInput = document.getElementById('color-input');
+let resetButton = document.getElementById('reset-bg');
 
 mainButtons.forEach((button) => {
   button.addEventListener('click', () => {
