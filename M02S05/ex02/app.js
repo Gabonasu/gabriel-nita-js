@@ -1,3 +1,5 @@
 $(document).ready(() => {
-  $('.slick-carousel').slice({});
+  $('.slick-carousel').slick({
+    dots: true,
+  });
 });
