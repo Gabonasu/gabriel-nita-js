@@ -21,4 +21,6 @@ $(document).ready(() => {
   $('#dialog-close').on('click', () => {
     $('#dialog').dialog('close');
   });
+
+ 
 });
